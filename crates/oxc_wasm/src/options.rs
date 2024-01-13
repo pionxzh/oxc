@@ -7,9 +7,7 @@ pub struct OxcRunOptions {
     lint: bool,
     format: bool,
     prettier_format: bool,
-    prettier_ir: bool,
     transform: bool,
-    type_check: bool,
     scope: bool,
     symbol: bool,
 }
@@ -62,16 +60,6 @@ impl OxcRunOptions {
     }
 
     #[wasm_bindgen(getter)]
-    pub fn prettier_ir(self) -> bool {
-        self.prettier_ir
-    }
-
-    #[wasm_bindgen(setter)]
-    pub fn set_prettier_ir(&mut self, yes: bool) {
-        self.prettier_ir = yes;
-    }
-
-    #[wasm_bindgen(getter)]
     pub fn transform(self) -> bool {
         self.transform
     }
@@ -79,16 +67,6 @@ impl OxcRunOptions {
     #[wasm_bindgen(setter)]
     pub fn set_transform(&mut self, yes: bool) {
         self.transform = yes;
-    }
-
-    #[wasm_bindgen(getter)]
-    pub fn type_check(self) -> bool {
-        self.type_check
-    }
-
-    #[wasm_bindgen(setter)]
-    pub fn set_type_check(&mut self, yes: bool) {
-        self.type_check = yes;
     }
 
     #[wasm_bindgen(getter)]
@@ -124,89 +102,5 @@ impl OxcParserOptions {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
         Self::default()
-    }
-}
-
-#[wasm_bindgen]
-#[derive(Default, Clone, Copy)]
-pub struct OxcLinterOptions;
-
-#[wasm_bindgen]
-impl OxcLinterOptions {
-    #[wasm_bindgen(constructor)]
-    pub fn new() -> Self {
-        Self
-    }
-}
-
-#[wasm_bindgen]
-#[derive(Default, Clone, Copy)]
-pub struct OxcCodegenOptions {
-    pub indentation: u8,
-}
-
-#[wasm_bindgen]
-impl OxcCodegenOptions {
-    #[wasm_bindgen(constructor)]
-    pub fn new() -> Self {
-        Self::default()
-    }
-}
-
-#[wasm_bindgen]
-#[derive(Default, Clone, Copy)]
-pub struct OxcMinifierOptions {
-    whitespace: bool,
-    mangle: bool,
-    compress: bool,
-}
-
-#[wasm_bindgen]
-impl OxcMinifierOptions {
-    #[wasm_bindgen(constructor)]
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    #[wasm_bindgen(getter)]
-    pub fn whitespace(self) -> bool {
-        self.whitespace
-    }
-
-    #[wasm_bindgen(setter)]
-    pub fn set_whitespace(&mut self, yes: bool) {
-        self.whitespace = yes;
-    }
-
-    #[wasm_bindgen(getter)]
-    pub fn mangle(self) -> bool {
-        self.mangle
-    }
-
-    #[wasm_bindgen(setter)]
-    pub fn set_mangle(&mut self, yes: bool) {
-        self.mangle = yes;
-    }
-
-    #[wasm_bindgen(getter)]
-    pub fn compress(self) -> bool {
-        self.compress
-    }
-
-    #[wasm_bindgen(setter)]
-    pub fn set_compress(&mut self, yes: bool) {
-        self.compress = yes;
-    }
-}
-
-#[wasm_bindgen]
-#[derive(Default, Clone, Copy)]
-pub struct OxcTypeCheckingOptions;
-
-#[wasm_bindgen]
-impl OxcTypeCheckingOptions {
-    #[wasm_bindgen(constructor)]
-    pub fn new() -> Self {
-        Self
     }
 }
